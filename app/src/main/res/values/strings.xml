@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DoubleTapping</string>
+    <string name="center_string">Hello,world</string>
 </resources>
