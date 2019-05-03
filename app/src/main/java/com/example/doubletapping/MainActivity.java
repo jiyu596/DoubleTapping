@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         final String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         if (!TextUtils.isEmpty(flat)) {
             final String[] names = flat.split(":");
+            //TODO: change it into for_each loop.
             for  (int i = 0; i < names.length; i++) {
                 final ComponentName cn = ComponentName.unflattenFromString(names[i]);
                 if (cn != null) {
