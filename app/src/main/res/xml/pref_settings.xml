@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditTextPreference
+        android:defaultValue="3000"
+        android:inputType="number"
+        android:key="@string/pref_key_delay_settings"
+        android:title="@string/pref_title_delay_settings" />
+
+    <SwitchPreference
+        android:key="@string/pref_key_status_main"
+        android:title="@string/pref_title_status_main"/>
+
+</PreferenceScreen>
