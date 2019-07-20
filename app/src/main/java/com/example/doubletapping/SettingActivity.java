@@ -11,7 +11,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_setting);
         Toast.makeText(getApplicationContext(),"in the sa.",Toast.LENGTH_LONG).show();
         if (savedInstanceState == null) {
             // Create the fragment only when the activity is created for the first time.
