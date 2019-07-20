@@ -23,11 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getPermission();
 
-        FloatingActionButton sFab=(FloatingActionButton) findViewById(R.id.settingsFloatingActionButton);
+        FloatingActionButton sFab=findViewById(R.id.settingsFloatingActionButton);
         sFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO jump to preferences
                 Intent intent = new Intent(MainActivity.this,SettingActivity.class);
                 startActivity(intent);
             }
@@ -38,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         getPermission();
-        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-        r.play();
+//        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+//        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+//        r.play();
     }
 
     private void getPermission() {
         if (!isEnabled()) {
-            Toast.makeText(getApplicationContext(), "can't read notifications!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "请授予通知读取权限！", Toast.LENGTH_LONG).show();
             Intent intent;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
@@ -61,16 +60,6 @@ public class MainActivity extends AppCompatActivity {
         final String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         if (!TextUtils.isEmpty(flat)) {
             final String[] names = flat.split(":");
-//           _TODO: change it into for_each loop.
-            /*
-            for  (int i = 0; i < names.length; i++) {
-                final ComponentName cn = ComponentName.unflattenFromString(names[i]);
-                if (cn != null) {
-                    if (TextUtils.equals(pkgName, cn.getPackageName())) {
-                        return true;
-                    }
-                }
-            }*/
             for(String i:names) {
                 final ComponentName cn = ComponentName.unflattenFromString(i);
                 if(cn != null) {

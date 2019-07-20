@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <SwitchPreference
+        android:key="@string/pref_key_status_main"
+        android:title="@string/pref_title_status_main"/>
+
     <EditTextPreference
         android:defaultValue="3000"
         android:inputType="number"
         android:key="@string/pref_key_delay_settings"
-        android:title="@string/pref_title_delay_settings" />
-
-    <SwitchPreference
-        android:key="@string/pref_key_status_main"
-        android:title="@string/pref_title_status_main"/>
+        android:title="@string/pref_title_delay_settings"
+        android:summary="@string/pref_summary_delay_settings"/>
 
 </PreferenceScreen>
