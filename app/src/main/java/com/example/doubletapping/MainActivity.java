@@ -6,6 +6,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -37,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         getPermission();
-//        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-//        r.play();
+//        Toast.makeText(getApplicationContext(),Integer.toString(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getInt("delay",3000)),Toast.LENGTH_LONG).show();
+        //Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        //Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+        //r.play();
     }
 
     private void getPermission() {
