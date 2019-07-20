@@ -7,6 +7,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getPermission();
 
-        Button sFab=(Button)findViewById(R.id.settingsFloatingActionButton);
+        FloatingActionButton sFab=(FloatingActionButton) findViewById(R.id.settingsFloatingActionButton);
         sFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO jump to preferences
-//                Intent intent = new Intent(getApplication(),getApplicationContext(),);
+                Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -59,11 +61,20 @@ public class MainActivity extends AppCompatActivity {
         final String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         if (!TextUtils.isEmpty(flat)) {
             final String[] names = flat.split(":");
-            //TODO: change it into for_each loop.
+//           _TODO: change it into for_each loop.
+            /*
             for  (int i = 0; i < names.length; i++) {
                 final ComponentName cn = ComponentName.unflattenFromString(names[i]);
                 if (cn != null) {
                     if (TextUtils.equals(pkgName, cn.getPackageName())) {
+                        return true;
+                    }
+                }
+            }*/
+            for(String i:names) {
+                final ComponentName cn = ComponentName.unflattenFromString(i);
+                if(cn != null) {
+                    if(TextUtils.equals(pkgName, cn.getPackageName())) {
                         return true;
                     }
                 }

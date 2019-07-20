@@ -17,5 +17,6 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_settings_20px" />
+        app:srcCompat="@drawable/ic_baseline_settings_20px"
+        android:focusable="true" />
 </android.support.constraint.ConstraintLayout>
